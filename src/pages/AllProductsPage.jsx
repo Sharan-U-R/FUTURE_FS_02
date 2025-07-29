@@ -19,7 +19,7 @@ const AllProductsPage = () => {
           'smartphones', 
           'laptops', 
           'tablets', 
-          'mobile-accessories',
+          'mobile-accessories'
         ];
         const promises = electronicCategories.map(category => fetch(`https://dummyjson.com/products/category/${category}`).then(res => res.json()));
         const results = await Promise.all(promises);
@@ -36,12 +36,17 @@ const AllProductsPage = () => {
 
   useEffect(() => {
     let products = [...allProducts];
+    
+    // Apply search filter
     if (searchTerm) {
       products = products.filter(p => p.title.toLowerCase().includes(searchTerm.toLowerCase()));
     }
-    if (selectedCategory !== 'all') {
+    
+    // Apply category filter (only if not 'all')
+    if (selectedCategory && selectedCategory !== 'all') {
       products = products.filter(p => p.category === selectedCategory);
     }
+    
     setFilteredProducts(products);
   }, [searchTerm, selectedCategory, allProducts]);
 
