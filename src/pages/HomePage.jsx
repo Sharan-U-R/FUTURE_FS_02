@@ -156,11 +156,13 @@ const HomePage = () => {
               title="Secure Payment" 
               description="Your transactions are protected with bank-level security and encryption."
             />
-            <FeatureCard 
-              icon="🎧" 
-              title="24/7 Support" 
-              description="Our expert team is here to help you anytime, anywhere with any questions."
-            />
+            <Link to="/contact" className="block">
+              <FeatureCard 
+                icon="🎧" 
+                title="24/7 Support" 
+                description="Our expert team is here to help you anytime, anywhere with any questions. Click to contact us!"
+              />
+            </Link>
           </div>
         </section>
 
@@ -238,7 +240,7 @@ const HomePage = () => {
         </section>
 
         {/* New Arrivals Section */}
-        <section>
+        <section className="mb-20">
           <div className="flex items-center justify-between mb-8">
             <div>
               <h2 className="text-4xl font-bold text-brand-dark mb-2">✨ New Arrivals</h2>
@@ -261,6 +263,65 @@ const HomePage = () => {
               </div>
             ))}
           </Carousel>
+        </section>
+
+        {/* Contact Section */}
+        <section className="mb-20">
+          <div className="bg-gradient-to-br from-gray-50 to-white rounded-3xl p-12 border border-gray-100 shadow-lg">
+            <div className="text-center mb-8">
+              <h2 className="text-4xl font-bold text-brand-dark mb-4">Need Help? We're Here for You!</h2>
+              <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                Have questions about our products or need support? Our expert team is ready to assist you.
+              </p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-8 mb-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-brand-blue to-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-brand-dark mb-2">Email Support</h3>
+                <p className="text-gray-600 text-sm">support@digitaldrift.com</p>
+                <p className="text-gray-500 text-xs">Response within 24 hours</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-brand-dark mb-2">Phone Support</h3>
+                <p className="text-gray-600 text-sm">1-800-DIGITAL</p>
+                <p className="text-gray-500 text-xs">Mon-Fri: 9AM-6PM EST</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-brand-dark mb-2">Live Chat</h3>
+                <p className="text-gray-600 text-sm">Available on website</p>
+                <p className="text-gray-500 text-xs">Mon-Fri: 9AM-9PM EST</p>
+              </div>
+            </div>
+            
+            <div className="text-center">
+              <Link 
+                to="/contact" 
+                className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-brand-blue to-blue-600 text-white font-semibold rounded-2xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                </svg>
+                Contact Us Now
+              </Link>
+            </div>
+          </div>
         </section>
       </div>
     </div>

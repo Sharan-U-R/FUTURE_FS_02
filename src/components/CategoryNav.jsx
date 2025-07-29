@@ -6,6 +6,7 @@ const categories = [
   { name: 'Smartphones', path: '/products?category=smartphones', category: 'smartphones' },
   { name: 'Tablets', path: '/products?category=tablets', category: 'tablets' },
   { name: 'Accessories', path: '/products?category=mobile-accessories', category: 'mobile-accessories' },
+  { name: 'Contact Us', path: '/contact' },
 ];
 
 const CategoryNav = () => {
