@@ -1,19 +1,15 @@
 #!/bin/bash
 
-# Update browserslist database
-echo "Updating browserslist database..."
-npx browserslist@latest --update-db
+# Simple build script for Vercel
+echo "Starting build process..."
 
-# Clear npm cache
-echo "Clearing npm cache..."
-npm cache clean --force
-
-# Install dependencies
-echo "Installing dependencies..."
-npm install
+# Set environment variables
+export CI=false
+export GENERATE_SOURCEMAP=false
+export BROWSERSLIST_IGNORE_OLD_DATA=1
 
 # Build the project
 echo "Building project..."
-CI=false npm run build
+npm run build
 
-echo "Build completed!"
+echo "Build completed successfully!"
