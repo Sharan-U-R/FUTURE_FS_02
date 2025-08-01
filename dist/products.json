@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1, "title": "MacBook Pro 16-inch", "description": "The ultimate pro laptop, with the M2 Pro or M2 Max chip, a stunning Liquid Retina XDR display, and all the ports you need.", "price": 2499, "rating": 4.9, "stock": 35, "category": "laptops", "thumbnail": "https://i.imgur.com/sYfJCm9.png", "images": ["https://i.imgur.com/sYfJCm9.png", "https://i.imgur.com/p3x2a9C.png", "https://i.imgur.com/dJk2a8Y.png"]
+  },
+  {
+    "id": 2, "title": "Dell XPS 15", "description": "A powerhouse Windows laptop with a stunning 4K OLED display, perfect for creators and professionals.", "price": 1899, "rating": 4.7, "stock": 42, "category": "laptops", "thumbnail": "https://i.imgur.com/dJk2a8Y.png", "images": ["https://i.imgur.com/dJk2a8Y.png", "https://i.imgur.com/sYfJCm9.png", "https://i.imgur.com/p3x2a9C.png"]
+  },
+  {
+    "id": 3, "title": "HP Spectre x360 14", "description": "A versatile 2-in-1 laptop with a premium design, powerful performance, and a beautiful OLED screen.", "price": 1549, "rating": 4.6, "stock": 55, "category": "laptops", "thumbnail": "https://i.imgur.com/p3x2a9C.png", "images": ["https://i.imgur.com/p3x2a9C.png", "https://i.imgur.com/dJk2a8Y.png", "https://i.imgur.com/sYfJCm9.png"]
+  },
+  {
+    "id": 4, "title": "iPhone 15 Pro", "description": "The latest iPhone with the A17 Bionic chip, a pro-level camera system, and a durable titanium design.", "price": 999, "rating": 4.8, "stock": 150, "category": "smartphones", "thumbnail": "https://i.imgur.com/tgr3pDS.png", "images": ["https://i.imgur.com/tgr3pDS.png", "https://i.imgur.com/S44K2G7.png", "https://i.imgur.com/a9r2D5d.png"]
+  },
+  {
+    "id": 5, "title": "Samsung Galaxy S24 Ultra", "description": "The pinnacle of Android phones, featuring a built-in S Pen, a massive dynamic display, and an incredible camera system.", "price": 1199, "rating": 4.7, "stock": 120, "category": "smartphones", "thumbnail": "https://i.imgur.com/S44K2G7.png", "images": ["https://i.imgur.com/S44K2G7.png", "https://i.imgur.com/tgr3pDS.png", "https://i.imgur.com/a9r2D5d.png"]
+  },
+  {
+    "id": 6, "title": "Google Pixel 8 Pro", "description": "The smartest smartphone, with an amazing AI-powered camera and a clean, intuitive Android experience.", "price": 899, "rating": 4.6, "stock": 90, "category": "smartphones", "thumbnail": "https://i.imgur.com/a9r2D5d.png", "images": ["https://i.imgur.com/a9r2D5d.png", "https://i.imgur.com/S44K2G7.png", "https://i.imgur.com/tgr3pDS.png"]
+  },
+  {
+    "id": 7, "title": "iPad Pro 12.9-inch", "description": "The ultimate tablet experience with the powerful M2 chip, a stunning Liquid Retina XDR display, and support for Apple Pencil and Magic Keyboard.", "price": 1099, "rating": 4.9, "stock": 75, "category": "tablets", "thumbnail": "https://i.imgur.com/L9z2a8X.png", "images": ["https://i.imgur.com/L9z2a8X.png", "https://i.imgur.com/z8J2a8Y.png"]
+  },
+  {
+    "id": 8, "title": "Samsung Galaxy Tab S9 Ultra", "description": "A massive and beautiful Android tablet with a gorgeous AMOLED screen, perfect for productivity and entertainment.", "price": 999, "rating": 4.8, "stock": 60, "category": "tablets", "thumbnail": "https://i.imgur.com/z8J2a8Y.png", "images": ["https://i.imgur.com/z8J2a8Y.png", "https://i.imgur.com/L9z2a8X.png"]
+  },
+  {
+    "id": 9, "title": "Sony WH-1000XM5 Headphones", "description": "Industry-leading noise-canceling headphones with exceptional sound quality and a comfortable, lightweight design.", "price": 399, "rating": 4.9, "stock": 200, "category": "audio", "thumbnail": "https://i.imgur.com/T5a2a8Z.png", "images": ["https://i.imgur.com/T5a2a8Z.png", "https://i.imgur.com/W5a2a8Z.png", "https://i.imgur.com/X5a2a8Z.png"]
+  },
+  {
+    "id": 10, "title": "Apple AirPods Pro 2", "description": "Rebuilt for even richer audio quality with up to 2x more Active Noise Cancellation.", "price": 249, "rating": 4.8, "stock": 300, "category": "audio", "thumbnail": "https://i.imgur.com/W5a2a8Z.png", "images": ["https://i.imgur.com/W5a2a8Z.png", "https://i.imgur.com/T5a2a8Z.png", "https://i.imgur.com/X5a2a8Z.png"]
+  },
+  {
+    "id": 11, "title": "Bose QuietComfort Ultra Earbuds", "description": "World-class noise cancellation and immersive audio that's tailored to you.", "price": 299, "rating": 4.7, "stock": 150, "category": "audio", "thumbnail": "https://i.imgur.com/X5a2a8Z.png", "images": ["https://i.imgur.com/X5a2a8Z.png", "https://i.imgur.com/W5a2a8Z.png", "https://i.imgur.com/T5a2a8Z.png"]
+  },
+  {
+    "id": 12, "title": "Logitech MX Master 3S Mouse", "description": "The ultimate mouse for productivity, with an ergonomic design and quiet clicks.", "price": 99, "rating": 4.9, "stock": 300, "category": "accessories", "thumbnail": "https://i.imgur.com/Y5a2a8Z.png", "images": ["https://i.imgur.com/Y5a2a8Z.png", "https://i.imgur.com/Z5a2a8Z.png"]
+  },
+  {
+    "id": 13, "title": "Anker 737 Power Bank", "description": "High-speed, high-capacity portable charging for all your devices.", "price": 149, "rating": 4.8, "stock": 250, "category": "accessories", "thumbnail": "https://i.imgur.com/Z5a2a8Z.png", "images": ["https://i.imgur.com/Z5a2a8Z.png", "https://i.imgur.com/Y5a2a8Z.png"]
+  }
+]
