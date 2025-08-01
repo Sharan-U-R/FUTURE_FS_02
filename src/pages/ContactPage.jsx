@@ -66,14 +66,14 @@ const ContactPage = () => {
     <div className="min-h-screen bg-brand-gray py-12">
       <div className="container mx-auto px-4">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-brand-dark mb-4">Contact Us</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark mb-3 sm:mb-4">Contact Us</h1>
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Need help? Have a question? We're here to assist you with anything you need.
           </p>
         </div>
 
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg">

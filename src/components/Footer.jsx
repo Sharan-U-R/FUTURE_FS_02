@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-brand-dark text-white mt-auto">
-      <div className="container mx-auto py-12 px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="container mx-auto py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Shop Section */}
           <div>
-            <h3 className="font-bold text-lg mb-4 text-white border-b border-gray-700 pb-2">Shop</h3>
+            <h3 className="font-bold text-base sm:text-lg mb-3 sm:mb-4 text-white border-b border-gray-700 pb-2">Shop</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/products" className="text-gray-300 hover:text-brand-blue transition-colors duration-300 text-sm">
+                <Link to="/products" className="text-gray-300 hover:text-brand-blue transition-colors duration-300 text-xs sm:text-sm">
                   All Products
                 </Link>
               </li>

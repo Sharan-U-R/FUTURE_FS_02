@@ -75,26 +75,26 @@ const AllProductsPage = () => {
   const categories = ['all', 'laptops', 'smartphones', 'tablets', 'mobile-accessories'];
 
   return (
-    <div className="container mx-auto p-8">
-      <div className="text-center mb-12">
-        <h1 className="text-5xl font-extrabold text-brand-dark tracking-tight">Our Collection</h1>
-        <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Browse our full catalog of high-performance devices.</p>
+    <div className="container mx-auto p-4 sm:p-6 lg:p-8">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark tracking-tight">Our Collection</h1>
+        <p className="text-base sm:text-lg text-gray-600 mt-3 sm:mt-4 max-w-2xl mx-auto px-4">Browse our full catalog of high-performance devices.</p>
       </div>
       
-      <div className="flex flex-col md:flex-row gap-4 mb-8 p-4 bg-white/60 backdrop-blur-lg rounded-xl border shadow-sm sticky top-[70px] z-40">
-        <div className="relative flex-grow">
+      <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8 p-3 sm:p-4 bg-white/60 backdrop-blur-lg rounded-xl border shadow-sm sticky top-[70px] z-40">
+        <div className="relative">
           <input
             type="text"
             placeholder="Search our collection..."
             value={searchTerm}
             onChange={handleSearchChange}
-            className="w-full p-3 pl-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition"
+            className="w-full p-3 pl-4 pr-4 border-2 border-gray-200 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-transparent transition text-sm sm:text-base"
           />
         </div>
         <select
           value={selectedCategory}
           onChange={handleCategoryChange}
-          className="w-full md:w-1/3 p-3 border-2 border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-brand-blue focus:border-transparent transition"
+          className="w-full p-3 border-2 border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-brand-blue focus:border-transparent transition text-sm sm:text-base"
         >
           {categories.map(category => (
             <option key={category} value={category} className="capitalize">
@@ -105,15 +105,24 @@ const AllProductsPage = () => {
       </div>
 
       {loading ? (
-        <p className="text-center text-xl font-medium text-gray-500">Loading products...</p>
+        <div className="text-center py-12">
+          <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-brand-blue"></div>
+          <p className="text-lg sm:text-xl font-medium text-gray-500 mt-4">Loading products...</p>
+        </div>
       ) : filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
           {filteredProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} showAddToCart={false} />
           ))}
         </div>
       ) : (
-        <p className="text-center text-xl font-medium text-gray-500 py-16">No products match your search.</p>
+        <div className="text-center py-12 sm:py-16">
+          <svg className="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          <p className="text-lg sm:text-xl font-medium text-gray-500">No products match your search.</p>
+          <p className="text-sm text-gray-400 mt-2">Try adjusting your search terms or category filter.</p>
+        </div>
       )}
     </div>
   );

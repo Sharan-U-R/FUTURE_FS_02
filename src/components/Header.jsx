@@ -33,49 +33,49 @@ const Header = () => {
               </svg>
             </button>
             <Link to="/" className="flex items-center gap-2 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-brand-blue to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-brand-blue to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-brand-dark to-gray-600 bg-clip-text text-transparent group-hover:from-brand-blue group-hover:to-purple-600 transition-all">
+              <span className="text-lg sm:text-xl lg:text-2xl font-bold bg-gradient-to-r from-brand-dark to-gray-600 bg-clip-text text-transparent group-hover:from-brand-blue group-hover:to-purple-600 transition-all">
                 DigitalDrift
               </span>
             </Link>
           </div>
           
-          <form onSubmit={handleSearch} className="hidden md:flex w-full max-w-2xl relative mx-8">
+          <form onSubmit={handleSearch} className="hidden lg:flex w-full max-w-xl xl:max-w-2xl relative mx-4 lg:mx-8">
             <div className="relative w-full">
               <input
                 type="text"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                placeholder="Search for electronics, accessories..."
-                className="w-full p-4 pl-5 pr-14 bg-gray-50 border-2 border-gray-200 rounded-2xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white transition-all duration-300 text-gray-700 placeholder-gray-400"
+                placeholder="Search electronics..."
+                className="w-full p-3 lg:p-4 pl-4 lg:pl-5 pr-12 lg:pr-14 bg-gray-50 border-2 border-gray-200 rounded-xl lg:rounded-2xl focus:ring-2 focus:ring-brand-blue focus:border-brand-blue focus:bg-white transition-all duration-300 text-gray-700 placeholder-gray-400 text-sm lg:text-base"
               />
               <button 
                 type="submit" 
-                className="absolute right-2 top-1/2 -translate-y-1/2 p-2.5 bg-gradient-to-r from-brand-blue to-blue-600 text-white rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="absolute right-2 top-1/2 -translate-y-1/2 p-2 lg:p-2.5 bg-gradient-to-r from-brand-blue to-blue-600 text-white rounded-lg lg:rounded-xl hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 lg:h-5 lg:w-5" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
                 </svg>
               </button>
             </div>
           </form>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             {isAuthenticated ? (
-              <div className="hidden md:flex items-center gap-3">
+              <div className="hidden lg:flex items-center gap-3">
                 <div className="flex items-center gap-2 px-3 py-2 bg-gray-50 rounded-xl">
                   <div className="w-8 h-8 bg-gradient-to-br from-brand-blue to-purple-600 rounded-full flex items-center justify-center">
                     <span className="text-white text-sm font-bold">{user.name.charAt(0).toUpperCase()}</span>
                   </div>
-                  <span className="font-medium text-gray-700">Hi, {user.name}</span>
+                  <span className="font-medium text-gray-700 text-sm lg:text-base">Hi, {user.name}</span>
                 </div>
                 <button 
                   onClick={logout} 
-                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-300"
+                  className="px-3 lg:px-4 py-2 text-xs lg:text-sm font-medium text-red-600 hover:text-red-700 hover:bg-red-50 rounded-xl transition-all duration-300"
                 >
                   Logout
                 </button>
@@ -83,24 +83,24 @@ const Header = () => {
             ) : (
               <Link 
                 to="/login" 
-                className="hidden md:flex items-center gap-2 px-4 py-2 font-medium text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-300"
+                className="hidden lg:flex items-center gap-2 px-3 lg:px-4 py-2 font-medium text-gray-700 hover:text-brand-blue hover:bg-blue-50 rounded-xl transition-all duration-300 text-sm lg:text-base"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-                Login
+                <span className="hidden xl:inline">Login</span>
               </Link>
             )}
             <Link 
               to="/cart" 
-              className="relative flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all duration-300 group"
+              className="relative flex items-center gap-1 sm:gap-2 px-2 sm:px-3 lg:px-4 py-2 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all duration-300 group"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-700 group-hover:text-brand-blue transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 sm:h-6 sm:w-6 text-gray-700 group-hover:text-brand-blue transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              <span className="font-medium text-gray-700 group-hover:text-brand-blue transition-colors hidden md:block">Cart</span>
+              <span className="font-medium text-gray-700 group-hover:text-brand-blue transition-colors hidden sm:block lg:text-base text-sm">Cart</span>
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center animate-pulse shadow-lg">
+                <span className="absolute -top-1 -right-1 bg-gradient-to-r from-red-500 to-red-600 text-white text-xs font-bold rounded-full h-4 w-4 sm:h-5 sm:w-5 flex items-center justify-center animate-pulse shadow-lg">
                   {totalItems}
                 </span>
               )}

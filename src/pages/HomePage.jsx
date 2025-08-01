@@ -29,7 +29,7 @@ const heroSlides = [
 const Carousel = ({ children }) => {
   return (
     <div className="relative">
-      <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory">
+      <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 scrollbar-hide snap-x snap-mandatory px-2 sm:px-0">
         {children}
       </div>
     </div>
@@ -37,10 +37,10 @@ const Carousel = ({ children }) => {
 };
 
 const FeatureCard = ({ icon, title, description }) => (
-  <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-    <div className="text-4xl mb-4">{icon}</div>
-    <h3 className="text-xl font-bold text-brand-dark mb-3">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{description}</p>
+  <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+    <div className="text-3xl sm:text-4xl mb-3 sm:mb-4">{icon}</div>
+    <h3 className="text-lg sm:text-xl font-bold text-brand-dark mb-2 sm:mb-3">{title}</h3>
+    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{description}</p>
   </div>
 );
 
@@ -96,26 +96,26 @@ const HomePage = () => {
 
   return (
     <div className="bg-brand-gray">
-      {/* Enhanced Hero Carousel */}
-      <div className="relative h-[70vh] w-full overflow-hidden">
+      {/* Enhanced Hero Carousel - Mobile Optimized */}
+      <div className="relative h-[50vh] sm:h-[60vh] lg:h-[70vh] w-full overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div key={index} className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}>
             <img src={slide.img} alt={slide.title} className="w-full h-full object-cover" />
             <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} flex items-center justify-center`}>
-              <div className="text-center p-8 max-w-4xl mx-auto">
-                <h1 className="text-5xl md:text-7xl font-extrabold text-white tracking-tight mb-6 animate-fade-in-up">
+              <div className="text-center p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-4 sm:mb-6 animate-fade-in-up leading-tight">
                   {slide.title}
                 </h1>
-                <p className="text-xl md:text-2xl text-white/90 mb-8 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 animate-fade-in-up px-2" style={{animationDelay: '0.2s'}}>
                   {slide.subtitle}
                 </p>
                 <Link 
                   to={slide.link} 
-                  className="inline-flex items-center px-8 py-4 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up"
+                  className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up text-sm sm:text-base"
                   style={{animationDelay: '0.4s'}}
                 >
                   Shop Now
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
@@ -138,14 +138,14 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div className="container mx-auto px-4 py-16">
-        {/* Features Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-brand-dark mb-4">Why Choose Digital Drift?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Experience the future of tech shopping with our premium service and quality products</p>
+      <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
+        {/* Features Section - Mobile Optimized */}
+        <section className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-dark mb-3 sm:mb-4">Why Choose Digital Drift?</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">Experience the future of tech shopping with our premium service and quality products</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <FeatureCard 
               icon="🚚" 
               title="Free Shipping" 
@@ -166,13 +166,13 @@ const HomePage = () => {
           </div>
         </section>
 
-        {/* Categories Section */}
-        <section className="mb-20">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-brand-dark mb-4">Shop by Category</h2>
-            <p className="text-xl text-gray-600">Discover our wide range of premium tech products</p>
+        {/* Categories Section - Mobile Optimized */}
+        <section className="mb-12 sm:mb-16 lg:mb-20">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-brand-dark mb-3 sm:mb-4">Shop by Category</h2>
+            <p className="text-base sm:text-lg lg:text-xl text-gray-600 px-4">Discover our wide range of premium tech products</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <CategoryCard 
               image="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=300&fit=crop"
               title="Laptops & Computers"
@@ -213,8 +213,8 @@ const HomePage = () => {
           </div>
           <Carousel>
             {deals.map(product => (
-              <div key={product.id} className="flex-shrink-0 w-80 snap-start">
-                <ProductCard product={product} />
+              <div key={product.id} className="flex-shrink-0 w-64 sm:w-72 lg:w-80 snap-start">
+                <ProductCard product={product} showAddToCart={true} />
               </div>
             ))}
           </Carousel>
@@ -258,8 +258,8 @@ const HomePage = () => {
           </div>
           <Carousel>
             {newArrivals.map(product => (
-              <div key={product.id} className="flex-shrink-0 w-80 snap-start">
-                <ProductCard product={product} />
+              <div key={product.id} className="flex-shrink-0 w-64 sm:w-72 lg:w-80 snap-start">
+                <ProductCard product={product} showAddToCart={true} />
               </div>
             ))}
           </Carousel>
