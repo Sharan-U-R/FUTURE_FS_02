@@ -11,16 +11,14 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "headers": {
+        "cache-control": "s-maxage=31536000,immutable"
+      }
+    },
+    {
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "GENERATE_SOURCEMAP": "false",
-    "BROWSERSLIST_IGNORE_OLD_DATA": "1",
-    "CI": "false",
-    "SKIP_PREFLIGHT_CHECK": "true"
-  },
-  "installCommand": "npm install --ignore-scripts",
-  "buildCommand": "npm run build"
+  ]
 }
