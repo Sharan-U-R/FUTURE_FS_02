@@ -25,6 +25,9 @@
     "GENERATE_SOURCEMAP": "false",
     "DISABLE_ESLINT_PLUGIN": "true",
     "BROWSERSLIST_IGNORE_OLD_DATA": "1",
-    "CI": "false"
-  }
+    "CI": "false",
+    "SKIP_PREFLIGHT_CHECK": "true"
+  },
+  "installCommand": "npm install",
+  "buildCommand": "npm run build"
 }
