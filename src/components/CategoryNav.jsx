@@ -19,19 +19,18 @@ const CategoryNav = () => {
         <div className="flex justify-center items-center gap-2">
           {categories.map(cat => {
             const isActive = cat.category ? cat.category === currentCategory : false;
-            
+
             return (
-              <NavLink 
-                key={cat.name} 
+              <NavLink
+                key={cat.name}
                 to={cat.path}
                 end={cat.path === '/'}
                 className={({ isActive: isPathActive }) => {
                   const active = cat.category ? isActive : isPathActive;
-                  return `relative px-6 py-4 font-medium transition-all duration-300 rounded-t-lg group ${
-                    active 
-                      ? 'text-brand-blue bg-white shadow-md border-b-2 border-brand-blue' 
-                      : 'text-gray-600 hover:text-brand-blue hover:bg-white/50'
-                  }`;
+                  return `relative px-6 py-4 font-medium transition-all duration-300 rounded-t-lg group ${active
+                    ? 'text-brand-blue bg-white shadow-md border-b-2 border-brand-blue'
+                    : 'text-gray-600 hover:text-brand-blue hover:bg-white/50'
+                    }`;
                 }}
               >
                 <span className="relative z-10">{cat.name}</span>
