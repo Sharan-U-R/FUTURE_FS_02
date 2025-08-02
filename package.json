@@ -11,6 +11,10 @@
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.32"
   },
+  "overrides": {
+    "minimatch": "3.1.2",
+    "glob": "7.2.3"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
