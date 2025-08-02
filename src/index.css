@@ -86,10 +86,10 @@ body {
 
 /* Carousel dots - same size on all devices */
 .carousel-dot {
-  width: 8px;
-  height: 8px;
-  min-width: 8px;
-  min-height: 8px;
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
 }
 
 .carousel-dot-active {

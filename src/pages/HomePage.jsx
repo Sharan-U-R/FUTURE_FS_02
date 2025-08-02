@@ -124,8 +124,8 @@ const HomePage = () => {
           </div>
         ))}
         
-        {/* Carousel Indicators - Same Size on All Devices */}
-        <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex" style={{gap: '6px'}}>
+        {/* Carousel Indicators - Even Closer to Shop Now Button */}
+        <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 flex" style={{gap: '8px'}}>
           {heroSlides.map((_, index) => (
             <button
               key={index}
