@@ -124,14 +124,16 @@ const HomePage = () => {
           </div>
         ))}
         
-        {/* Carousel Indicators */}
-        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-3">
+        {/* Carousel Indicators - Same Size on All Devices */}
+        <div className="absolute bottom-4 sm:bottom-6 left-1/2 transform -translate-x-1/2 flex" style={{gap: '6px'}}>
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentSlide ? 'bg-white scale-125' : 'bg-white/50 hover:bg-white/75'
+              className={`carousel-dot rounded-full transition-all duration-300 ${
+                index === currentSlide 
+                  ? 'bg-white carousel-dot-active' 
+                  : 'bg-white/60 hover:bg-white/80'
               }`}
             />
           ))}
