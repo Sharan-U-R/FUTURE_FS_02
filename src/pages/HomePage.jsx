@@ -113,7 +113,7 @@ const HomePage = () => {
                   <div className="flex justify-center">
                     <Link 
                       to={slide.link} 
-                      className="inline-flex items-center px-3 sm:px-4 py-2 sm:py-3 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up text-sm sm:text-base"
+                      className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up text-base sm:text-lg"
                       style={{animationDelay: '0.4s'}}
                     >
                       Shop Now
