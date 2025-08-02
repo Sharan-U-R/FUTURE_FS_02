@@ -6,10 +6,5 @@
       "CI": "false",
       "DISABLE_ESLINT_PLUGIN": "true"
     }
-  },
-  "functions": {
-    "app/api/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
   }
 }
