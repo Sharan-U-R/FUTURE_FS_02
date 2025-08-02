@@ -20,7 +20,7 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100 w-full max-w-full overflow-hidden">
+    <header className="bg-white/95 backdrop-blur-md shadow-lg sticky top-0 z-50 border-b border-gray-100 w-full max-w-full relative">
       <div className="w-full px-0.5 sm:px-2 lg:px-3 py-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-0 sm:gap-0.5">
@@ -110,7 +110,7 @@ const Header = () => {
       </div>
       {/* Enhanced Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 p-4 absolute w-full shadow-lg">
+        <div className="bg-white/95 backdrop-blur-md border-t border-gray-100 p-4 absolute top-full left-0 w-full shadow-lg" style={{zIndex: 9999, display: 'block'}}>
           <div className="space-y-2">
             <form onSubmit={handleSearch} className="mb-4">
               <div className="relative">
