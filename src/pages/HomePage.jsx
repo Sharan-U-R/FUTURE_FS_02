@@ -96,48 +96,54 @@ const HomePage = () => {
 
   return (
     <div className="bg-brand-gray">
-      {/* Enhanced Hero Carousel - Mobile Optimized */}
-      <div className="relative h-[50vh] sm:h-[60vh] lg:h-[70vh] w-full overflow-hidden">
+      {/* Enhanced Hero Carousel - Mobile Extended */}
+      <div className="relative h-[70vh] sm:h-[60vh] lg:h-[70vh] w-full overflow-hidden">
         {heroSlides.map((slide, index) => (
           <div key={index} className={`absolute inset-0 transition-all duration-1000 ${index === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}>
             <img src={slide.img} alt={slide.title} className="w-full h-full object-cover" />
-            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} flex items-center justify-center`}>
-              <div className="text-center p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto">
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-4 sm:mb-6 animate-fade-in-up leading-tight">
-                  {slide.title}
-                </h1>
-                <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 animate-fade-in-up px-2" style={{animationDelay: '0.2s'}}>
-                  {slide.subtitle}
-                </p>
-                <Link 
-                  to={slide.link} 
-                  className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up text-sm sm:text-base"
-                  style={{animationDelay: '0.4s'}}
-                >
-                  Shop Now
-                  <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
+            <div className={`absolute inset-0 bg-gradient-to-r ${slide.gradient} flex items-center justify-center min-h-full`}>
+              <div className="text-center p-4 sm:p-6 lg:p-8 max-w-4xl mx-auto flex flex-col justify-center min-h-full">
+                <div className="flex-1 flex flex-col justify-center">
+                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-extrabold text-white tracking-tight mb-4 sm:mb-6 animate-fade-in-up leading-tight">
+                    {slide.title}
+                  </h1>
+                  <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-6 sm:mb-8 animate-fade-in-up px-2" style={{animationDelay: '0.2s'}}>
+                    {slide.subtitle}
+                  </p>
+                  <div className="flex justify-center">
+                    <Link 
+                      to={slide.link} 
+                      className="inline-flex items-center px-3 sm:px-4 py-2 sm:py-3 bg-white text-brand-dark font-semibold rounded-full hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-lg animate-fade-in-up text-sm sm:text-base"
+                      style={{animationDelay: '0.4s'}}
+                    >
+                      Shop Now
+                      <svg className="ml-2 w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </Link>
+                  </div>
+                  
+                  {/* Carousel Indicators - Positioned relative to content */}
+                  <div className="flex justify-center mt-4" style={{gap: '8px'}}>
+                    {heroSlides.map((_, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setCurrentSlide(index)}
+                        className={`carousel-dot rounded-full transition-all duration-300 ${
+                          index === currentSlide 
+                            ? 'bg-white carousel-dot-active' 
+                            : 'bg-white/60 hover:bg-white/80'
+                        }`}
+                        aria-label={`Go to slide ${index + 1}`}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         ))}
-        
-        {/* Carousel Indicators - Even Closer to Shop Now Button */}
-        <div className="absolute bottom-12 sm:bottom-16 left-1/2 transform -translate-x-1/2 flex" style={{gap: '8px'}}>
-          {heroSlides.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentSlide(index)}
-              className={`carousel-dot rounded-full transition-all duration-300 ${
-                index === currentSlide 
-                  ? 'bg-white carousel-dot-active' 
-                  : 'bg-white/60 hover:bg-white/80'
-              }`}
-            />
-          ))}
-        </div>
+
       </div>
 
       <div className="container mx-auto px-4 py-8 sm:py-12 lg:py-16">
