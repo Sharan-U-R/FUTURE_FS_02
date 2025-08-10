@@ -109,17 +109,24 @@ const Navbar = ({ handleOrderPopup }) => {
   };
 
   return (
-    <div className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl border-b border-gray-200/20 dark:border-gray-700/20 dark:text-white duration-200 fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <div className="bg-gradient-to-r from-gray-900/95 via-gray-800/95 to-gray-900/95 backdrop-blur-xl border-b border-gray-700/30 text-white duration-200 fixed top-0 left-0 right-0 z-50 shadow-2xl">
       <div className="py-4 sm:py-5">
         <div className="container-padding flex justify-between items-center">
           {/* Logo and Links section */}
           <div className="flex items-center gap-4">
             <button
               onClick={() => navigate("/")}
-              className="text-primary font-black tracking-wider text-xl sm:text-2xl lg:text-3xl uppercase cursor-pointer hover:scale-105 transition-all duration-200 relative"
+              className="relative group cursor-pointer hover:scale-105 transition-all duration-300"
             >
-              <span className="relative z-10">TechHub</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-lg blur-lg opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-lg flex items-center justify-center shadow-lg">
+                  <span className="text-black font-bold text-sm sm:text-lg">N</span>
+                </div>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-500 font-black tracking-wider text-xl sm:text-2xl lg:text-3xl uppercase">
+                  NexTech
+                </span>
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </button>
             {/* Menu Items */}
             <div className="hidden lg:block">
@@ -128,25 +135,26 @@ const Navbar = ({ handleOrderPopup }) => {
                   <li key={index}>
                     <button
                       onClick={() => handleMenuClick(data.link, data.section)}
-                      className="relative px-4 py-2 font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary duration-200 rounded-lg hover:bg-primary/5 transition-all"
+                      className="relative px-4 py-2 font-semibold text-gray-300 hover:text-yellow-400 duration-200 rounded-lg hover:bg-yellow-400/10 transition-all group"
                     >
-                      {data.name}
+                      <span className="relative z-10">{data.name}</span>
+                      <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/0 to-yellow-400/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                     </button>
                   </li>
                 ))}
                 {/* Dropdown */}
                 <li className="relative cursor-pointer group">
-                  <button className="flex items-center gap-2 px-4 py-2 font-semibold text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary duration-300 rounded-lg hover:bg-primary/5 transition-all">
+                  <button className="flex items-center gap-2 px-4 py-2 font-semibold text-gray-300 hover:text-yellow-400 duration-300 rounded-lg hover:bg-yellow-400/10 transition-all">
                     Categories
                     <FaCaretDown className="group-hover:rotate-180 duration-300" />
                   </button>
                   {/* Dropdown Links */}
-                  <div className="absolute z-[9999] hidden group-hover:block w-[220px] rounded-xl bg-white/95 dark:bg-gray-800/95 backdrop-blur-xl shadow-2xl border border-gray-200/20 dark:border-gray-700/20 p-3 mt-2">
+                  <div className="absolute z-[9999] hidden group-hover:block w-[220px] rounded-xl bg-gray-800/95 backdrop-blur-xl shadow-2xl border border-gray-700/30 p-3 mt-2">
                     <ul className="space-y-1">
                       {DropdownLinks.map((data, index) => (
                         <li key={index}>
                           <button
-                            className="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary duration-300 flex items-center w-full p-3 hover:bg-primary/10 rounded-lg font-medium text-left transition-all"
+                            className="text-gray-300 hover:text-yellow-400 duration-300 flex items-center w-full p-3 hover:bg-yellow-400/10 rounded-lg font-medium text-left transition-all"
                             onClick={() => handleCategoryClick(data.category)}
                           >
                             <span className="mr-3 text-lg">
@@ -176,13 +184,13 @@ const Navbar = ({ handleOrderPopup }) => {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={handleSearchInputChange}
-                  className="w-0 group-hover:w-[250px] lg:group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-300/50 dark:border-gray-600/50 group-hover:border-primary/50 px-4 py-2.5 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 dark:bg-gray-800/50 dark:text-white backdrop-blur-sm"
+                  className="w-0 group-hover:w-[250px] lg:group-hover:w-[300px] transition-all duration-300 rounded-full border border-gray-600/50 group-hover:border-yellow-400/50 px-4 py-2.5 focus:outline-none focus:border-yellow-400 focus:ring-2 focus:ring-yellow-400/20 bg-gray-800/50 text-white placeholder-gray-400 backdrop-blur-sm"
                 />
                 <button
                   type="submit"
                   className="absolute top-1/2 -translate-y-1/2 right-3 p-1 rounded-full hover:bg-primary/10 transition-colors duration-200"
                 >
-                  <IoMdSearch className="text-xl text-gray-600 group-hover:text-primary dark:text-gray-400 hover:text-primary transition-colors duration-200" />
+                  <IoMdSearch className="text-xl text-gray-400 group-hover:text-yellow-400 hover:text-yellow-400 transition-colors duration-200" />
                 </button>
               </div>
             </form>
@@ -191,13 +199,13 @@ const Navbar = ({ handleOrderPopup }) => {
             <div className="hidden sm:flex items-center gap-2">
               <button
                 onClick={() => navigate("/login")}
-                className="px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors duration-200"
+                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-yellow-400 transition-colors duration-200"
               >
                 Login
               </button>
               <button
                 onClick={() => navigate("/register")}
-                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-primary to-secondary text-white rounded-full hover:scale-105 transition-all duration-200"
+                className="px-4 py-2 text-sm font-medium bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-full hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-200"
               >
                 Sign Up
               </button>
@@ -205,10 +213,10 @@ const Navbar = ({ handleOrderPopup }) => {
 
             {/* Cart button section */}
             <button
-              className="relative p-3 hover:bg-primary/10 dark:hover:bg-primary/10 rounded-full transition-all duration-300 group"
+              className="relative p-3 hover:bg-yellow-400/10 rounded-full transition-all duration-300 group"
               onClick={() => navigate("/cart")}
             >
-              <FaCartShopping className="text-xl sm:text-2xl text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors duration-300" />
+              <FaCartShopping className="text-xl sm:text-2xl text-gray-300 group-hover:text-yellow-400 transition-colors duration-300" />
               {getTotalItems() > 0 && (
                 <div className="w-6 h-6 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-full absolute -top-2 -right-2 flex items-center justify-center text-xs font-bold shadow-lg animate-bounce">
                   {getTotalItems()}
@@ -220,7 +228,7 @@ const Navbar = ({ handleOrderPopup }) => {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-lg hover:bg-primary/10 transition-colors duration-300 text-gray-600 dark:text-gray-400 hover:text-primary"
+                className="p-2 rounded-lg hover:bg-yellow-400/10 transition-colors duration-300 text-gray-300 hover:text-yellow-400"
               >
                 {isMenuOpen ? <FiX className="text-2xl" /> : <FiMenu className="text-2xl" />}
               </button>
@@ -230,7 +238,7 @@ const Navbar = ({ handleOrderPopup }) => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden mt-4 glass-effect rounded-xl shadow-2xl p-6 mx-4 slide-up">
+          <div className="lg:hidden mt-4 bg-gray-800/95 backdrop-blur-xl border border-gray-700/30 rounded-xl shadow-2xl p-6 mx-4 slide-up">
             {/* Mobile Search */}
             <form onSubmit={handleSearch} className="mb-6">
               <div className="relative">
@@ -239,11 +247,11 @@ const Navbar = ({ handleOrderPopup }) => {
                   placeholder="Search products..."
                   value={searchQuery}
                   onChange={handleSearchInputChange}
-                  className="mobile-search-bar pr-12"
+                  className="w-full rounded-full border border-gray-600/50 focus:border-yellow-400/50 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-yellow-400/20 bg-gray-700/50 text-white placeholder-gray-400 backdrop-blur-sm pr-12"
                 />
                 <button
                   type="submit"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors duration-300"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-yellow-400 transition-colors duration-300"
                 >
                   <IoMdSearch className="text-xl" />
                 </button>
@@ -255,7 +263,7 @@ const Navbar = ({ handleOrderPopup }) => {
                 <li key={index}>
                   <button
                     onClick={() => handleMenuClick(data.link, data.section)}
-                    className="block w-full px-4 py-3 font-semibold text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 text-left"
+                    className="block w-full px-4 py-3 font-semibold text-gray-300 hover:bg-yellow-400/10 hover:text-yellow-400 rounded-lg transition-all duration-300 text-left"
                   >
                     {data.name}
                   </button>
@@ -273,7 +281,7 @@ const Navbar = ({ handleOrderPopup }) => {
                       handleCategoryClick(data.category);
                       setIsMenuOpen(false);
                     }}
-                    className="block w-full px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 text-left"
+                    className="block w-full px-6 py-3 text-gray-400 hover:bg-yellow-400/10 hover:text-yellow-400 rounded-lg transition-all duration-300 text-left"
                   >
                     {data.name}
                   </button>
@@ -290,7 +298,7 @@ const Navbar = ({ handleOrderPopup }) => {
                     navigate("/login");
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full px-6 py-3 text-gray-600 dark:text-gray-400 hover:bg-primary/10 hover:text-primary rounded-lg transition-all duration-300 text-left"
+                  className="block w-full px-6 py-3 text-gray-400 hover:bg-yellow-400/10 hover:text-yellow-400 rounded-lg transition-all duration-300 text-left"
                 >
                   Login
                 </button>
@@ -302,7 +310,7 @@ const Navbar = ({ handleOrderPopup }) => {
                     navigate("/register");
                     setIsMenuOpen(false);
                   }}
-                  className="block w-full px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:scale-105 transition-all duration-300 text-left font-medium"
+                  className="block w-full px-6 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-lg hover:scale-105 hover:shadow-lg hover:shadow-yellow-400/25 transition-all duration-300 text-left font-medium"
                 >
                   Sign Up
                 </button>

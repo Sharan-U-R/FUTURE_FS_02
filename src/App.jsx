@@ -44,7 +44,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
             </Routes>
-            
+
             <Footer />
             <Popup orderPopup={orderPopup} handleOrderPopup={handleOrderPopup} />
           </div>

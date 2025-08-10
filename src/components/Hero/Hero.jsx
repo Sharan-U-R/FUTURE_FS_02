@@ -1,15 +1,15 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Slider from "react-slick";
+import headphoneImg from "../../assets/hero/headphone.png";
 
 const HeroData = [
   {
     id: 1,
-    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1200&h=1000&fit=crop",
-    subtitle: "Latest Technology",
-    title: "iPhone 15 Pro",
-    title2: "Up to 30% Off",
-    description: "Discover the newest iPhone with A17 Pro chip, titanium design, and advanced camera system.",
+    img: headphoneImg,
+    subtitle: "Audio Excellence",
+    title: "Premium Headphones",
+    title2: "Noise Cancellation",
+    description: "Discover premium tech gadgets that elevate your digital lifestyle.",
   },
   {
     id: 2,
@@ -21,16 +21,17 @@ const HeroData = [
   },
   {
     id: 3,
-    img: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=1200&h=1000&fit=crop",
-    subtitle: "Audio Excellence",
-    title: "Premium Headphones",
-    title2: "Noise Cancellation",
-    description: "Immerse yourself in crystal-clear sound with our premium noise-cancelling headphones.",
+    img: "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=1200&h=1000&fit=crop",
+    subtitle: "Latest Technology",
+    title: "iPhone 15 Pro",
+    title2: "Up to 30% Off",
+    description: "Discover the newest iPhone with A17 Pro chip, titanium design, and advanced camera system.",
   },
 ];
 
 const Hero = ({ handleOrderPopup }) => {
   const navigate = useNavigate();
+  const [currentSlide, setCurrentSlide] = React.useState(0);
 
   const handleOrderNow = () => {
     // Navigate to products section and scroll to it
@@ -43,20 +44,16 @@ const Hero = ({ handleOrderPopup }) => {
     }, 100);
   };
 
-  const settings = {
-    dots: false,
-    arrows: false,
-    infinite: true,
-    speed: 800,
-    slidesToScroll: 1,
-    autoplaySpeed: 4000,
-    cssEase: "ease-in-out",
-    pauseOnHover: false,
-    pauseOnFocus: true,
-  };
+  // Auto-slide functionality
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % HeroData.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
-    <div className="container-padding">
+    <div className="px-2 sm:px-4 lg:px-6">
       <div className="overflow-hidden rounded-2xl sm:rounded-3xl min-h-[800px] sm:min-h-[600px] lg:min-h-[700px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex justify-center items-center shadow-2xl relative">
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 opacity-5">
@@ -68,12 +65,18 @@ const Hero = ({ handleOrderPopup }) => {
         
         <div className="container pb-6 sm:pb-8 lg:pb-0 relative z-10">
           {/* Hero section */}
-          <Slider {...settings}>
-            {HeroData.map((data) => (
-              <div key={data.id}>
-                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[700px] lg:min-h-auto py-8 lg:py-0">
+          <div className="relative overflow-hidden">
+            {HeroData.map((data, index) => (
+              <div 
+                key={data.id}
+                className={`transition-opacity duration-800 ${
+                  currentSlide === index ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                }`}
+              >
+                {/* Desktop Layout - Same as before */}
+                <div className="hidden lg:grid lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[700px] lg:min-h-auto py-8 lg:py-0">
                   
-                  {/* Text content section - Mobile First */}
+                  {/* Text content section - Desktop */}
                   <div className="flex flex-col justify-center gap-8 sm:gap-8 px-6 sm:px-6 lg:px-8 text-center lg:text-left order-1 lg:order-1 relative z-10">
                     
                     {/* Main Headline */}
@@ -99,7 +102,7 @@ const Hero = ({ handleOrderPopup }) => {
                       data-aos-once="true"
                       className="text-sm sm:text-lg text-gray-300 leading-relaxed max-w-sm sm:max-w-md mx-auto lg:mx-0 font-light px-2 sm:px-0"
                     >
-                      Welcome to TechHub, the paradise of technology and innovation. Find the best tech gadgets for all of your needs!
+                      {data.description}
                     </p>
                     
                     {/* Buttons */}
@@ -124,7 +127,7 @@ const Hero = ({ handleOrderPopup }) => {
                     </div>
                   </div>
                   
-                  {/* Product showcase section - After Text on Mobile */}
+                  {/* Product showcase section - Desktop */}
                   <div className="w-full px-6 sm:px-6 order-2 lg:order-2 mt-8 lg:mt-0">
                     <div
                       data-aos="fade-up"
@@ -132,63 +135,137 @@ const Hero = ({ handleOrderPopup }) => {
                       data-aos-once="true"
                       className="relative max-w-sm mx-auto lg:max-w-none"
                     >
-                      {/* Main product card - Better Mobile Sizing */}
+                      {/* Main product card */}
                       <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-md rounded-2xl lg:rounded-3xl p-6 sm:p-6 lg:p-8 border border-white/10 shadow-2xl relative">
-                        {/* Product Image - Better Mobile Size */}
                         <div className="relative mb-4 lg:mb-4">
-                          <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-yellow-600/20 rounded-xl lg:rounded-2xl blur-xl"></div>
                           <img
                             src={data.img}
                             alt={data.title}
-                            className="relative z-10 w-full h-[200px] sm:h-[220px] lg:h-[350px] object-contain hover:scale-105 transition-transform duration-300"
+                            className="w-full h-[200px] sm:h-[220px] lg:h-[350px] object-contain hover:scale-105 transition-transform duration-300"
                           />
                         </div>
                       </div>
                       
-
-                      
                       {/* Desktop floating cards */}
-                      <div className="hidden lg:block">
-                        <div className="absolute -bottom-6 -left-6 grid grid-cols-2 gap-3">
-                          <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
-                            <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
-                              <span className="text-yellow-400 text-sm">🎧</span>
-                            </div>
-                            <p className="text-white text-xs font-medium">Headphones</p>
-                            <p className="text-gray-400 text-xs">Premium Audio</p>
+                      <div className="absolute -bottom-6 -left-6 grid grid-cols-2 gap-3">
+                        <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
+                          <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
+                            <span className="text-yellow-400 text-sm">🎧</span>
                           </div>
-                          <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
-                            <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
-                              <span className="text-yellow-400 text-sm">📱</span>
-                            </div>
-                            <p className="text-white text-xs font-medium">Mobiles</p>
-                            <p className="text-gray-400 text-xs">Latest Tech</p>
-                          </div>
+                          <p className="text-white text-xs font-medium">Headphones</p>
+                          <p className="text-gray-400 text-xs">Premium Audio</p>
                         </div>
-                        
-                        <div className="absolute -top-6 -right-6 grid grid-cols-2 gap-3">
-                          <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
-                            <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
-                              <span className="text-yellow-400 text-sm">💻</span>
-                            </div>
-                            <p className="text-white text-xs font-medium">Laptops</p>
-                            <p className="text-gray-400 text-xs">Pro Performance</p>
+                        <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
+                          <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
+                            <span className="text-yellow-400 text-sm">📱</span>
                           </div>
-                          <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
-                            <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
-                              <span className="text-yellow-400 text-sm">⌚</span>
-                            </div>
-                            <p className="text-white text-xs font-medium">Watches</p>
-                            <p className="text-gray-400 text-xs">Smart Health</p>
+                          <p className="text-white text-xs font-medium">Mobiles</p>
+                          <p className="text-gray-400 text-xs">Latest Tech</p>
+                        </div>
+                      </div>
+                      
+                      <div className="absolute -top-6 -right-6 grid grid-cols-2 gap-3">
+                        <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
+                          <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
+                            <span className="text-yellow-400 text-sm">💻</span>
                           </div>
+                          <p className="text-white text-xs font-medium">Laptops</p>
+                          <p className="text-gray-400 text-xs">Pro Performance</p>
+                        </div>
+                        <div className="bg-gray-800/80 backdrop-blur-md rounded-xl p-3 border border-white/10 shadow-lg">
+                          <div className="w-8 h-8 bg-yellow-400/20 rounded-lg flex items-center justify-center mb-2">
+                            <span className="text-yellow-400 text-sm">⌚</span>
+                          </div>
+                          <p className="text-white text-xs font-medium">Watches</p>
+                          <p className="text-gray-400 text-xs">Smart Health</p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                {/* Mobile Layout - New Structure */}
+                <div className="flex flex-col lg:hidden min-h-[700px] py-8 px-6 text-center">
+                  
+                  {/* 1. Main Headline First */}
+                  <div className="mb-8">
+                    <h1
+                      data-aos="fade-up"
+                      data-aos-duration="400"
+                      data-aos-once="true"
+                      className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight"
+                    >
+                      Immerse yourself<br />
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+                        in a symphony
+                      </span>
+                    </h1>
+                  </div>
+                  
+                  {/* 2. Image Second */}
+                  <div className="mb-8">
+                    <div
+                      data-aos="fade-up"
+                      data-aos-duration="400"
+                      data-aos-delay="100"
+                      data-aos-once="true"
+                      className="relative max-w-xs mx-auto"
+                    >
+                      <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-md rounded-2xl p-6 border border-white/10 shadow-2xl">
+                        <div className="relative">
+                          <img
+                            src={data.img}
+                            alt={data.title}
+                            className="w-full h-[200px] object-contain hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* 3. Description Third */}
+                  <div className="mb-8">
+                    <p
+                      data-aos="fade-up"
+                      data-aos-duration="400"
+                      data-aos-delay="200"
+                      data-aos-once="true"
+                      className="text-lg text-gray-300 leading-relaxed max-w-sm mx-auto font-light"
+                    >
+                      {data.description}
+                    </p>
+                  </div>
+                  
+                  {/* 4. Buttons Last */}
+                  <div
+                    data-aos="fade-up"
+                    data-aos-duration="400"
+                    data-aos-delay="300"
+                    data-aos-once="true"
+                    className="flex flex-col gap-4"
+                  >
+                    <button
+                      onClick={handleOrderNow}
+                      className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-bold text-lg px-10 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-lg"
+                    >
+                      Shop Now
+                    </button>
+                    <button
+                      onClick={() => {
+                        const productsSection = document.querySelector('[data-section="products"]');
+                        if (productsSection) {
+                          productsSection.scrollIntoView({ behavior: 'smooth' });
+                        }
+                      }}
+                      className="w-full border-2 border-white/30 text-white hover:bg-white hover:text-gray-900 font-bold text-lg px-10 py-4 rounded-full hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+                    >
+                      View Products
+                    </button>
+                  </div>
+                </div>
               </div>
             ))}
-          </Slider>
+          </div>
         </div>
       </div>
     </div>
